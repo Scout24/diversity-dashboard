@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sample Document</title>
+    <link rel="stylesheet" type="text/css" href="http://www.static-immobilienscout24.de/fro/core/2.3.0/css/core.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/dashboard.css"/>
+    <!--[if (lt IE 9) & (!IEMobile)]>
+    <link rel="stylesheet" type="text/css" href="//www.static-immobilienscout24.de/fro/core/2.3.0/css/core_no-mq.min.css" />
+    <![endif]-->
+    <script type="text/javascript" src="http://www.static-immobilienscout24.de/fro/core/2.3.0/js/core.min.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/progressbar.min.js"></script>
+    
+  </head>
+  <body>
+    <div class="viewport">
+      <div class="page-wrapper">
+        <div class="content-wrapper">
+            <h1>Diversity in Tech Dashboard</h1>
+            <hr/>
+            
+            <div id="container"></div>
+
+            <div class="grid border-bottom margin-top">                
+                <div class="grid-item one-sixth palm-one-whole">
+                    <div class="vertical-center-container" style="height: 300px;">
+                        <span class="vertical-center four-fifths">Product Engineering IS24</span>
+                    </div>
+                </div>
+                <div class="grid-item five-sixths palm-one-whole">  
+                    <canvas id="productEngineeringIS24Chart" width="400" height="130"></canvas>
+                </div>  
+            </div>
+            
+            <div class="grid border-bottom margin-top">  
+                <div class="grid-item one-sixth palm-one-whole">
+                    <div class="vertical-center-container" style="height: 300px;">
+                        <span class="vertical-center four-fifths">Product Engineering AS24</span>
+                    </div>
+                </div>
+                <div class="grid-item five-sixths palm-one-whole">  
+                    <canvas id="productEngineeringAS24Chart" width="400" height="130"></canvas>
+                </div> 
+            </div> 
+            
+            <div class="grid border-bottom margin-top">
+                <div class="grid-item one-sixth palm-one-whole">
+                    <div class="vertical-center-container" style="height: 300px;">
+                        <span class="vertical-center four-fifths">Platform Engineering</span>
+                    </div>
+                </div>
+                <div class="grid-item five-sixths palm-one-whole">  
+                    <canvas id="platformEngineeringChart" width="400" height="130"></canvas>
+                </div> 
+            </div>
+            
+            <div class="grid border-bottom margin-top">
+                <div class="grid-item one-sixth palm-one-whole">
+                    <div class="vertical-center-container" style="height: 300px;">
+                        <span class="vertical-center four-fifths">Data Engineering</span>
+                    </div>
+                </div>
+                <div class="grid-item five-sixths palm-one-whole"> 
+                    <canvas id="dataEngineeringChart" width="400" height="130"></canvas>
+                </div> 
+            </div>  
+            
+        </div>
+      </div>
+    </div>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
