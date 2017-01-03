@@ -17,18 +17,12 @@ var bar = new ProgressBar.Circle(container, {
     circle.path.setAttribute('stroke-width', state.width);
 
     var value = Math.round(circle.value() * 100);
-    if (value === 0) {
-      circle.setText('');
-    } else {
-      circle.setText(value + ' %');
-    }
-
+    circle.setText(value + ' %');
   }
 });
 bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '2rem';
 
-bar.animate(0.5);  // Number from 0.0 to 1.0
 
 var productEngineeringIS24 = new Array();
 var productEngineeringAS24 = new Array();
@@ -48,18 +42,78 @@ function onDataReceived(data) {
     total.push(data.total);
 }
 
+bar.animate((total[total.length - 1] -12) / 12);  // Number from 0.0 to 1.0
+
+
+$("#currentTotal").html(getChangeIndicator(total) + " " + total[total.length - 1] + " %");
+$("#currentProductEngineeringIS24").html(getChangeIndicator(productEngineeringIS24) + " " + productEngineeringIS24[productEngineeringIS24.length - 1] + " %");
+$("#currentProductEngineeringAS24").html(getChangeIndicator(productEngineeringAS24) + " " + productEngineeringAS24[productEngineeringAS24.length - 1] + " %");
+$("#currentPlatformEngineering").html(getChangeIndicator(platformEngineering) + " " + platformEngineering[platformEngineering.length - 1] + " %");
+$("#currentDataEngineering").html(getChangeIndicator(dataEngineering) + " " + dataEngineering[dataEngineering.length - 1] + " %");
+
+
+function getChangeIndicator(data) {
+    if (total.length == 1) {
+        return "<i class=\"fa fa-arrow-right\" aria-hidden=\"true\" style=\"color:orange;\"></i>";
+    }
+    
+    var current = total[total.length - 1];
+    var last = total[total.length - 2];
+    if (current > last) {
+        return "<i class=\"fa fa-arrow-up\" aria-hidden=\"true\" style=\"color:green;\"></i>";
+    } else if (current < last) {
+        return "<i class=\"fa fa-arrow-down\" aria-hidden=\"true\" style=\"color:red;\"></i>";
+    } else {
+        return "<i class=\"fa fa-arrow-right\" aria-hidden=\"true\" style=\"color:orange;\"></i>";
+    }
+}
+
 createChartFor("productEngineeringIS24Chart", productEngineeringIS24);
 createChartFor("productEngineeringAS24Chart", productEngineeringAS24);
 createChartFor("platformEngineeringChart", platformEngineering);
 createChartFor("dataEngineeringChart", dataEngineering);
+createChartFor("totalChart", total);
 
 function createChartFor(canvasId, data) {    
-    var barBackgroundColor = "rgba(255,117,0,0.4)";
+    var barBackgroundColor = "rgba(255,117,0,0.6)";
     var barBorderColor = "rgba(255,117,0,1)";
     var chartLabel = '% of Female Engineers';
     var xLabels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    var chartOptions = {scales: { yAxes: [{ticks: {beginAtZero:true,max: 80, stepSize: 5}}]}};
+    var chartOptions = {
+        scales: { 
+            yAxes: [ 
+                { 
+                    ticks: {
+                        beginAtZero:true,
+                        max: 80, 
+                        stepSize: 10
+                    }
+                }
+            ]
+        },
+        animation: {
+            onComplete: function() {
+                var ctx = this.chart.ctx;
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                var chart = this;
+                var datasets = this.config.data.datasets;
+
+                datasets.forEach(function (dataset, i) {
+                    ctx.font = "12px Arial";
+                    ctx.fillStyle = "White";
+                    chart.getDatasetMeta(i).data.forEach(function (p, j) {
+                        ctx.fillText(datasets[i].data[j], p._model.x, p._model.y + 10);
+                    });
+                });
+            
+        }
+    }
+        
+        
+        
+    };
 
     new Chart(document.getElementById(canvasId), {
         type: 'bar',
