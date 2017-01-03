@@ -53,12 +53,12 @@ $("#currentDataEngineering").html(getChangeIndicator(dataEngineering) + " " + da
 
 
 function getChangeIndicator(data) {
-    if (total.length == 1) {
+    if (data.length == 1) {
         return "<i class=\"fa fa-arrow-right\" aria-hidden=\"true\" style=\"color:orange;\"></i>";
     }
     
-    var current = total[total.length - 1];
-    var last = total[total.length - 2];
+    var current = data[data.length - 1];
+    var last = data[data.length - 2];
     if (current > last) {
         return "<i class=\"fa fa-arrow-up\" aria-hidden=\"true\" style=\"color:green;\"></i>";
     } else if (current < last) {
