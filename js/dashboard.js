@@ -68,17 +68,42 @@ function getChangeIndicator(data) {
     }
 }
 
+var xLabels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 createChartFor("productEngineeringIS24Chart", productEngineeringIS24);
 createChartFor("productEngineeringAS24Chart", productEngineeringAS24);
 createChartFor("platformEngineeringChart", platformEngineering);
 createChartFor("dataEngineeringChart", dataEngineering);
 createChartFor("totalChart", total);
 
+
+createTableFor("#productEngineeringIS24Table", productEngineeringIS24);
+createTableFor("#productEngineeringAS24Table", productEngineeringAS24);
+createTableFor("#platformEngineeringTable", platformEngineering);
+createTableFor("#dataEngineeringTable", dataEngineering);
+createTableFor("#totalTable", total);
+
+function createTableFor(elementId, data) {
+    data.forEach(function (value, i) {
+        $(elementId).append(createTableEntry(xLabels[i], data[i]));
+    });
+    
+}
+
+function createTableEntry(month, value) {
+    return "<div class=\"grid gutter-s\">" +
+                "<div class=\"grid-item two-thirds\">" + month + "</div>" +
+                "<div class=\"grid-item one-third align-right\">" + value +  " %</div>" +
+            "</div>";
+}
+
+
+
 function createChartFor(canvasId, data) {    
     var barBackgroundColor = "rgba(255,117,0,0.6)";
     var barBorderColor = "rgba(255,117,0,1)";
     var chartLabel = '% of Female Engineers';
-    var xLabels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    
 
     var chartOptions = {
         scales: { 
@@ -130,3 +155,7 @@ function createChartFor(canvasId, data) {
         options: chartOptions
     });
 }
+
+
+
+
