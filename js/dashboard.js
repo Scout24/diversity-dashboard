@@ -35,10 +35,10 @@ for (var i = 1; i <= 12; i++) {
 }
 
 function onDataReceived(data) {
-    productEngineeringIS24.push(data.productEngineeringIS24);
-    productEngineeringAS24.push(data.productEngineeringAS24);
-    platformEngineering.push(data.platformEngineering);
-    dataEngineering.push(data.dataEngineering);
+    productEngineeringIS24.push(data.product_engineering_is24);
+    productEngineeringAS24.push(data.product_engineering_as24);
+    platformEngineering.push(data.platform_engineering);
+    dataEngineering.push(data.data_engineering);
     total.push(data.total);
 }
 
