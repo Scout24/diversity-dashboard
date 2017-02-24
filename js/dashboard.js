@@ -129,7 +129,7 @@ function createChartFor(canvasId, data) {
                     ctx.font = "12px Arial";
                     ctx.fillStyle = "White";
                     chart.getDatasetMeta(i).data.forEach(function (p, j) {
-                        ctx.fillText(datasets[i].data[j], p._model.x, p._model.y + 10);
+                        ctx.fillText(datasets[i].data[j] + " %", p._model.x, p._model.y + 10);
                     });
                 });
             

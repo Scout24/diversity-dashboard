@@ -6,6 +6,7 @@
     <title>Diversity in Tech Dashboard</title>
     <link rel="stylesheet" type="text/css" href="http://www.static-immobilienscout24.de/fro/core/2.3.0/css/core.min.css" />
       <link rel="stylesheet" type="text/css" href="css/dashboard.css"/>
+      <link rel="stylesheet" type="text/css" href="css/timeline.css"/>
     <!--[if (lt IE 9) & (!IEMobile)]>
     <link rel="stylesheet" type="text/css" href="//www.static-immobilienscout24.de/fro/core/2.3.0/css/core_no-mq.min.css" />
     <![endif]-->
@@ -19,114 +20,346 @@
     <div class="viewport">
       <div class="page-wrapper">
         <div class="content-wrapper padding-bottom-l" >
-            <div class="margin-top-l">
-                <img src="assets/sticker_final.jpg" width="100" class="palm-hide margin-right-l" style="float:left;"/>
-                <h1 class="margin-top-xl font-xxl margin-bottom-s">Diversity in Tech Dashboard</h1>
-                <p class="palm-hide font-xs font-lightgray">"Home is where your story begins. Mobility takes you further on your very journey. At Scout24 we value the diversity of our employees as much as our users’ individual life scripts. Our house is open for everyone and free of stereotyped thinking. The power of our team grows with the variety of individual perspectives. Our culture embraces a workplace that fits in with your personal way of life. Together, we build leading digital marketplaces in Europe."</p>
-            </div>
-                     
-            <div class="grid gutter-l margin-top-xl">
-                <div class="grid-item one-half palm-one-whole align-center"> 
-                    <div class=" border padding shadow">
-                        <h4>Goal Tracker</h4>
-                        <hr/>
-                        <div class="grid gutter-xxl margin-top-l">
-                            <div class="grid-item one-third">
-                                <div id="container"></div>
-                            </div>
-                            <div class="grid-item two-thirds">
-                                By the end of 2017 we want to have <strong>doubled</strong> the 
-                                quota of female engineers working at Scout24! With a quota of <u>12% at the
-                                beginning of 2017</u>, it means, that we have to reach <strong>24%</strong>!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-item one-half palm-one-whole align-center"> 
-                    <div class=" border padding shadow">
-                        <h4>Current Stats</h4>
-                        <hr/>
-                        <div class="grid gutter-s">
-                            <div class="grid-item two-thirds">
-                                <strong>Total</strong>
-                            </div>
-                            <div class="grid-item one-third align-right">
-                                <strong><span id="currentTotal"></span></strong>
-                            </div>
-                        </div>
-                        <div class="grid gutter-s">
-                            <div class="grid-item two-thirds">
-                                Product Engineering IS24
-                            </div>
-                            <div class="grid-item one-third align-right">
-                                <span id="currentProductEngineeringIS24"></span>
-                            </div>
-                        </div>
-                        <div class="grid gutter-s">
-                            <div class="grid-item two-thirds">
-                                Product Engineering AS24
-                            </div>
-                            <div class="grid-item one-third align-right">
-                                <span id="currentProductEngineeringAS24"></span>
-                            </div>
-                        </div>
-                        <div class="grid gutter-s">
-                            <div class="grid-item two-thirds">
-                                Platform Engineering
-                            </div>
-                            <div class="grid-item one-third align-right">
-                                <span id="currentPlatformEngineering"></span>
-                            </div>
-                        </div>
-                        <div class="grid gutter-s">
-                            <div class="grid-item two-thirds">
-                                Data & Analytics
-                            </div>
-                            <div class="grid-item one-third align-right">
-                                <span id="currentDataEngineering"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             
+            <div class="margin-top-l align-right">
+                <a id="dashboard-nav" class="margin-right-l nav-element link-visited menu-active" href="#" 
+                   onclick="showDashboard()">
+                    Dashboard
+                </a>
+                <a id="community-nav" class="nav-element link-visited" href="#" onclick="showCommunityInfo()">
+                    Community
+                </a>
+            </div>
+           
             <div>
-                <div class=" border padding shadow">
-                    <h4>Total 2017</h4>
-                    <canvas class="palm-hide" id="totalChart" width="400" height="130"></canvas>
-                    <div class="desk-hide lap-hide" id="totalTable"></div>
+                <img src="assets/sticker_final.jpg" width="50" class="palm-hide margin-right-l" style="float:left;"/>
+                <h1 id="headline-dashboard" class="font-xxl margin-bottom-s">Diversity in Tech Dashboard</h1>
+                <h1 id="headline-community-info" class="font-xxl margin-bottom-s" style="display:none;">
+                    Diversity in Tech Community</h1>
+            </div>
+            
+            <div id="dashboard" class="margin-top-xl">
+                <div class="grid gutter-l">
+                    <div class="grid-item one-half palm-one-whole align-center"> 
+                        <div class=" border padding shadow">
+                            <h4>Goal Tracker</h4>
+                            <hr/>
+                            <div class="grid gutter-xxl margin-top-l">
+                                <div class="grid-item one-third palm-one-whole">
+                                    <div id="container"></div>
+                                </div>
+                                <div class="grid-item two-thirds palm-one-whole">
+                                    By the end of 2017 we want to have <strong>doubled</strong> the 
+                                    quota of female engineers working at Scout24! With a quota of <u>12% at the
+                                    beginning of 2017</u>, it means, that we have to reach <strong>24%</strong>!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item one-half palm-one-whole align-center"> 
+                        <div class=" border padding shadow">
+                            <h4>Current Stats</h4>
+                            <hr/>
+                            <div class="grid gutter-s">
+                                <div class="grid-item two-thirds">
+                                    <strong>Total</strong>
+                                </div>
+                                <div class="grid-item one-third align-right">
+                                    <strong><span id="currentTotal"></span></strong>
+                                </div>
+                            </div>
+                            <div class="grid gutter-s">
+                                <div class="grid-item two-thirds">
+                                    Product Engineering IS24
+                                </div>
+                                <div class="grid-item one-third align-right">
+                                    <span id="currentProductEngineeringIS24"></span>
+                                </div>
+                            </div>
+                            <div class="grid gutter-s">
+                                <div class="grid-item two-thirds">
+                                    Product Engineering AS24
+                                </div>
+                                <div class="grid-item one-third align-right">
+                                    <span id="currentProductEngineeringAS24"></span>
+                                </div>
+                            </div>
+                            <div class="grid gutter-s">
+                                <div class="grid-item two-thirds">
+                                    Platform Engineering
+                                </div>
+                                <div class="grid-item one-third align-right">
+                                    <span id="currentPlatformEngineering"></span>
+                                </div>
+                            </div>
+                            <div class="grid gutter-s">
+                                <div class="grid-item two-thirds">
+                                    Data & Analytics
+                                </div>
+                                <div class="grid-item one-third align-right">
+                                    <span id="currentDataEngineering"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div>
+                    <div class=" border padding shadow">
+                        <h4>Total 2017</h4>
+                        <canvas class="palm-hide" id="totalChart" width="400" height="130"></canvas>
+                        <div class="desk-hide lap-hide" id="totalTable"></div>
+                    </div>
 
-                <div class="margin-top-l  border padding shadow">
-                    <h4>Product Engineering IS24 2017</h4>
-                    <canvas class="palm-hide" id="productEngineeringIS24Chart" width="400" height="130"></canvas>
-                    <div class="desk-hide lap-hide" id="productEngineeringIS24Table"></div>
-                </div>
+                    <div class="margin-top-l  border padding shadow">
+                        <h4>Product Engineering IS24 2017</h4>
+                        <canvas class="palm-hide" id="productEngineeringIS24Chart" width="400" height="130"></canvas>
+                        <div class="desk-hide lap-hide" id="productEngineeringIS24Table"></div>
+                    </div>
 
-                <div class="margin-top-l  border padding shadow">
-                    <h4>Product Engineering AS24 2017</h4>
-                    <canvas class="palm-hide" id="productEngineeringAS24Chart" width="400" height="130"></canvas>
-                    <div class="desk-hide lap-hide" id="productEngineeringAS24Table"></div>
-                </div>
+                    <div class="margin-top-l  border padding shadow">
+                        <h4>Product Engineering AS24 2017</h4>
+                        <canvas class="palm-hide" id="productEngineeringAS24Chart" width="400" height="130"></canvas>
+                        <div class="desk-hide lap-hide" id="productEngineeringAS24Table"></div>
+                    </div>
 
-                <div class="margin-top-l  border padding shadow">
-                    <h4>Platform Engineering 2017</h4>
-                    <canvas class="palm-hide"id="platformEngineeringChart" width="400" height="130"></canvas>
-                    <div class="desk-hide lap-hide" id="platformEngineeringTable"></div>
-                </div>
+                    <div class="margin-top-l  border padding shadow">
+                        <h4>Platform Engineering 2017</h4>
+                        <canvas class="palm-hide"id="platformEngineeringChart" width="400" height="130"></canvas>
+                        <div class="desk-hide lap-hide" id="platformEngineeringTable"></div>
+                    </div>
 
-                <div class="margin-top-l  border padding shadow">
-                    <h4>Data & Analytics 2017</h4>
-                    <canvas class="palm-hide" id="dataEngineeringChart" width="400" height="130"></canvas>
-                    <div class="desk-hide lap-hide" id="dataEngineeringTable"></div>
+                    <div class="margin-top-l  border padding shadow">
+                        <h4>Data & Analytics 2017</h4>
+                        <canvas class="palm-hide" id="dataEngineeringChart" width="400" height="130"></canvas>
+                        <div class="desk-hide lap-hide" id="dataEngineeringTable"></div>
+                    </div>
                 </div>
             </div>
-        
             
+            <div id="community-info" class="margin-top-l" style="display:none;">
+                <div class="align-center">
+                    <span class="font-m font-light"><i>We address different aspects of diversity at our 
+                        workplace because we know
+                        of the advantage that a more diverse workforce has for the success of our 
+                        products. Everybody is welcome to join our community.</i></span>
+                    </h5>
+               </div> 
+                <div class="grid gutter-l margin-top-l">
+                    <div class="grid-item one-fourth align-center">
+                        <img src="assets/sebastian.jpeg" class="circular--square profile"> 
+                        <p class="font-s font-italic font-bold">Sebastian Nachtigall</p>
+                        <p class="font-s font-italic">Engineering Manager</p>
+                    </div> 
+                    <div class="grid-item one-fourth align-center">
+                        <img src="assets/christin.jpeg" class="circular--square profile">
+                        <p class="font-s font-italic font-bold">Christin Westermann</p>
+                        <p class="font-s font-italic">Software Engineer</p>
+                    </div>    
+                </div>
+                <div class="grid gutter-l">
+ 
+                </div>
+
+                
+                
+               <div class="grid gutter-l margin-top-xl">
+                    <div class="grid-item one-half palm-one-whole align-center"> 
+                        <div class=" border padding shadow align-left">
+                            <h4 class="font-light">Contact Us</h4>
+                            <hr/>
+                            <p><i class="fa fa-calendar" aria-hidden="true"></i> <strong>Bi-Weekly Meeting </strong>                              Wednesdays 13:00 - 14:00 pm.</p>
+                            <p class="margin-top-xs"><img src="assets/Slack_Icon.png" width="15"/> 
+                                diversityintech</p>
+                            <p class="margin-top-xs"><i class="fa fa-envelope" aria-hidden="true"></i> 
+                                diversity-in-tech@scout24.com</p>
+                        </div>
+                    </div>
+                    <div class="grid-item one-half palm-one-whole"> 
+                        <div class=" border padding shadow">
+                            <h4 class="font-light">Diversity Claim</h4>
+                            <hr/>
+                            <h5 class="font-light">"Colorful is my favorite color" <span class="font-xs align-top">*</span></h5>
+                            <img src="assets/sticker_final.jpg" width="100" style="float:left;"/>
+                            <p class="align-left">
+                                Home is where your story begins. Mobility takes you further on your very journey. 
+                                At Scout24 we value the diversity of our employees as much as our users’ 
+                                individual life scripts. Our house is open for everyone
+                                and free of stereotyped thinking. The power of our team grows with the variety 
+                                of individual perspectives. Our culture embraces a workplace that fits in 
+                                with your personal way of life. 
+                                Together, we build leading digital marketplaces in Europe.</p>
+                            <p class="font-xs">* Walter Gropius</p>
+                        </div>
+                    </div>
+                </div>   
+    
+                <div class="margin-top-l"> 
+                    <ul class="timeline">
+                        <li>
+                            <div class="align-center">
+                                <h1>2017</h1>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="direction-l">                                
+                                <div class="flag-wrapper">
+                                    <span class="flag font-brandorange font-semibold">March, 2017</span>
+                                </div>
+                                <div class="desc">
+                                    <h4>Diversity Dashboard</h4>
+                                    <span>In December built the Diversity Dashboard to create
+                                        transparency for our current numbers concerning
+                                    our main goal.
+                                    </span>    
+                                </div> 
+                            </div>
+                        </li>
+                        <li>
+                            <div class="align-center">
+                                <h1>2016</h1>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="direction-r">
+                                <div class="flag-wrapper">
+                                    <span class="flag font-brandorange font-semibold">September, 2016</span>
+                                </div>
+                                <div class="desc">
+                                    <h4>Anti-Bias Workshop</h4>
+                                    <span>The Diversity in Tech Community members attended an
+                                        anti bias workshop we hosted in our office.
+                                    </span>    
+                                </div>                            
+                            </div>
+                        </li>
+                        <li>
+                            <div class="direction-l">                                
+                                <div class="flag-wrapper">
+                                    <span class="flag font-brandorange font-semibold">June, 2016</span>
+                                </div>
+                                <div class="desc">
+                                    <h4>Community Offsite</h4>
+                                    <span>We took one day to talk about us as a community, to
+                                        talk about the latest results of the 
+                                    second survey and most importantly, to set a goal that we could measure and work
+                                        towards in the 
+                                    next year. The Goal: "Double the percentage of female engineers by the end of
+                                        2017"
+                                    </span>    
+                                </div> 
+                            </div>
+                        </li>
+                        <li>
+                            <div class="direction-r">
+                                <div class="flag-wrapper">
+                                    <span class="flag font-brandorange font-semibold">June, 2016</span>
+                                </div>
+                                <div class="desc">
+                                    <h4>Second Survey</h4>
+                                    <span>We took the same survey from last year, applied some
+                                        minor changes, and run it again to see how
+                                    the opinions of our colleagues might have changed.
+                                    </span>
+                                </div>                            
+                            </div>
+                        </li>
+                        <li>
+                            <div class="direction-l"> 
+                                <div class="flag-wrapper">
+                                    <span class="flag font-brandorange font-semibold">May, 2016</span>
+                                </div>
+                                <div class="desc">
+                                    Sticks & Stones
+                                    <span>We were present with a booth at the Career Fair
+                                        „Sticks and Stones“ which focusses on the LGBT Community.
+                                    </span>
+                                </div> 
+                          
+                            </div>
+                        </li>
+                       <li>
+                            <div class="direction-r">
+                                <div class="flag-wrapper">
+                                    <span class="flag font-brandorange font-semibold">April, 2016</span>
+                                </div>
+                                <div class="desc">
+                                    <h4>Girls' Day</h4>
+                                    <span>During the Girls' Day we opened our doors both at
+                                        IS24 and AS24 to those who wanted to get insights of what it means to be a
+                                        software developer. Together with many volunteering Scouties we introduced
+                                        the basics of website programming with HTML and CSS to 24 attending girls.
+                                    </span>    
+                                </div>     
+                            </div>
+                        </li>
+                        <li>
+                            <div class="direction-l">
+                                
+                                <div class="flag-wrapper">
+                                    <span class="flag font-brandorange font-semibold">January, 2016</span>
+                                </div>
+                                <div class="desc">
+                                    <h4>Workshop for Hiring Managers</h4>
+                                    <span>We had a workshop for all interested Hiring Managers
+                                        about bias in the hiring process and what to do about it.
+                                    </span>
+                                </div>  
+                            </div>
+                        </li>
+                        <li>
+                            <div class="align-center">
+                                <h1>2015</h1>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="direction-r">
+                                <div class="flag-wrapper">
+                                    <span class="flag font-brandorange font-semibold">November, 2015</span>
+                                </div>
+                                <div class="desc">
+                                    <h4>Diversity Claim</h4>
+                                    <span>
+                                        In order to address more people from underrepresented groups we created a
+                                        diversty claim in cooperation with HR.
+                                    </span>    
+                                </div>     
+                            </div>
+                        </li>
+                        <li>
+                            <div class="direction-l">
+                                 <div class="flag-wrapper">
+                                        <span class="flag font-brandorange font-semibold">June, 2015</span>
+                                 </div>  
+                                 <div class="desc">
+                                    <h4>Our first Survey</h4>
+                                    <span>In order to figure out which challenges IS24 was
+                                        facing, we sent out a survey to the builders community. Based on the
+                                    outcome we were able to define what we should focus on first.</span>
+                                 </div>  
+                            </div>
+                        </li>
+                        <li>
+                            <div class="direction-r " style="margin-top: -20px;">
+                                <div class="flag-wrapper">
+                                    <span class="flag font-brandorange font-semibold">February, 2015</span>
+                                </div>
+                                <div class="desc">
+                                    <h4>Start!</h4>
+                                    <span>Once upon a time some Scouties brainstormed about
+                                        the lack of diversity in tech in general and realized that this was also
+                                        a challenge IS24 was facing at that moment. – This is how our Diversity
+                                        in Tech Community was created. </span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             
         </div>
       </div>
     </div>
     <script src="js/dashboard.js"></script>
+    <script src="js/navigation.js"></script>
   </body>
 </html>
