@@ -1,7 +1,7 @@
 var people = [
     raluca = {
         name: "Raluca Idor",
-        title: "Talen Acquisition Manager",
+        title: "Talent Acquisition Manager",
         company: "IS24",
         img: "raluca.jpeg",
         flag: "ro"
