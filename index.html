@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="de-DE">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Diversity in Tech Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="http://www.static-immobilienscout24.de/fro/core/2.3.0/css/core.min.css" />
-      <link rel="stylesheet" type="text/css" href="css/dashboard.css"/>
-      <link rel="stylesheet" type="text/css" href="css/timeline.css"/>
-      <link rel="stylesheet" type="text/css" href="css/flag-icon.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="http://www.static-immobilienscout24.de/fro/core/2.3.0/css/core.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css"/>
+    <link rel="stylesheet" type="text/css" href="css/timeline.css"/>
+    <link rel="stylesheet" type="text/css" href="css/flag-icon.min.css"/>
     <!--[if (lt IE 9) & (!IEMobile)]>
-    <link rel="stylesheet" type="text/css" href="//www.static-immobilienscout24.de/fro/core/2.3.0/css/core_no-mq.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="//www.static-immobilienscout24.de/fro/core/2.3.0/css/core_no-mq.min.css"/>
     <![endif]-->
     <script type="text/javascript" src="http://www.static-immobilienscout24.de/fro/core/2.3.0/js/core.min.js"></script>
     <script src="js/Chart.min.js"></script>
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/progressbar.min.js"></script>
-    
-    
-  </head>
-  <body>
-    <div class="viewport">
-      <div class="page-wrapper">
-        <div class="content-wrapper padding-bottom-l" >
-            
+
+
+</head>
+<body>
+<div class="viewport">
+    <div class="page-wrapper">
+        <div class="content-wrapper padding-bottom-l">
+
             <div class="margin-top-l align-right">
-                <a id="dashboard-nav" class="margin-right-l nav-element link-visited menu-active" href="#" 
+                <a id="dashboard-nav" class="margin-right-l nav-element link-visited menu-active" href="#"
                    onclick="showDashboard()">
                     Dashboard
                 </a>
@@ -32,17 +34,17 @@
                     Community
                 </a>
             </div>
-           
+
             <div>
                 <img src="assets/sticker_final.jpg" width="50" class="palm-hide margin-right-l" style="float:left;"/>
                 <h1 id="headline-dashboard" class="font-xxl margin-bottom-s">Diversity in Tech Dashboard</h1>
                 <h1 id="headline-community-info" class="font-xxl margin-bottom-s" style="display:none;">
                     Diversity in Tech Community</h1>
             </div>
-            
+
             <div id="dashboard" class="margin-top-xl">
                 <div class="grid gutter-l">
-                    <div class="grid-item one-half palm-one-whole align-center"> 
+                    <div class="grid-item one-half palm-one-whole align-center">
                         <div class=" border padding shadow">
                             <h4>Goal Tracker</h4>
                             <hr/>
@@ -51,14 +53,14 @@
                                     <div id="container"></div>
                                 </div>
                                 <div class="grid-item two-thirds palm-one-whole">
-                                    By the end of 2017 we want to have <strong>doubled</strong> the 
+                                    By the end of 2017 we want to have <strong>doubled</strong> the
                                     quota of female engineers working at Scout24! With a quota of <u>12% at the
                                     beginning of 2017</u>, it means, that we have to reach <strong>24%</strong>!
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="grid-item one-half palm-one-whole align-center"> 
+                    <div class="grid-item one-half palm-one-whole align-center">
                         <div class=" border padding shadow">
                             <h4>Current Stats</h4>
                             <hr/>
@@ -126,7 +128,7 @@
 
                     <div class="margin-top-l  border padding shadow">
                         <h4>Platform Engineering 2017</h4>
-                        <canvas class="palm-hide"id="platformEngineeringChart" width="400" height="130"></canvas>
+                        <canvas class="palm-hide" id="platformEngineeringChart" width="400" height="130"></canvas>
                         <div class="desk-hide lap-hide" id="platformEngineeringTable"></div>
                     </div>
 
@@ -137,7 +139,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div id="community-info" class="margin-top-l" style="display:none;">
                 <div class="align-center margin-bottom-l">
                     <span class="font-m font-light"><i>We address different aspects of diversity at our 
@@ -145,30 +147,32 @@
                         of the advantage that a more diverse workforce has for the success of our 
                         products. Everybody is welcome to join our community.</i></span>
                     </h5>
-               </div> 
-            
+                </div>
+
                 <div id="profiles-desk1" class="grid gutter-l palm-hide"></div>
                 <div id="profiles-desk2" class="grid gutter-l palm-hide"></div>
-            
+
                 <div id="profiles-palm" class="desk-hide lap-hide"></div>
-    
-               <div class="grid gutter-l margin-top-xl">
-                    <div class="grid-item one-half palm-one-whole align-center"> 
+
+                <div class="grid gutter-l margin-top-xl">
+                    <div class="grid-item one-half palm-one-whole align-center">
                         <div class=" border padding shadow align-left">
                             <h4 class="font-light">Contact Us</h4>
                             <hr/>
-                            <p><i class="fa fa-calendar" aria-hidden="true"></i> <strong>Bi-Weekly Meeting </strong>                                                Wednesdays 13:00 - 14:00 pm.</p>
-                            <p class="margin-top-xs"><img src="assets/Slack_Icon.png" width="15"/> 
+                            <p><i class="fa fa-calendar" aria-hidden="true"></i> <strong>Bi-Weekly Meeting </strong>
+                                Wednesdays 13:00 - 14:00 pm.</p>
+                            <p class="margin-top-xs"><img src="assets/Slack_Icon.png" width="15"/>
                                 diversityintech</p>
-                            <p class="margin-top-xs"><i class="fa fa-envelope" aria-hidden="true"></i> 
+                            <p class="margin-top-xs"><i class="fa fa-envelope" aria-hidden="true"></i>
                                 diversity-in-tech@scout24.com</p>
                         </div>
                     </div>
-                    <div class="grid-item one-half palm-one-whole"> 
+                    <div class="grid-item one-half palm-one-whole">
                         <div class=" border padding shadow">
                             <h4 class="font-light">Diversity Claim</h4>
                             <hr/>
-                            <h5 class="font-light">"Colorful is my favorite color" <span class="font-xs align-top">*</span></h5>
+                            <h5 class="font-light">"Colorful is my favorite color" <span
+                                    class="font-xs align-top">*</span></h5>
                             <img src="assets/sticker_final.jpg" width="100" style="float:left;"/>
                             <p class="align-left">
                                 Home is where your story begins. Mobility takes you further on your very journey. 
@@ -181,9 +185,9 @@
                             <p class="font-xs">* Walter Gropius</p>
                         </div>
                     </div>
-                </div>   
-    
-                <div class="margin-top-l"> 
+                </div>
+
+                <div class="margin-top-l">
                     <ul class="timeline">
                         <li>
                             <div class="align-center">
@@ -191,7 +195,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="direction-l">                                
+                            <div class="direction-l">
                                 <div class="flag-wrapper">
                                     <span class="flag font-brandorange font-semibold">March, 2017</span>
                                 </div>
@@ -217,12 +221,12 @@
                                     <h4>Anti-Bias Workshop</h4>
                                     <span>The Diversity in Tech Community members attended an
                                         anti bias workshop we hosted in our office.
-                                    </span>    
-                                </div>                            
+                                    </span>
+                                </div>
                             </div>
                         </li>
                         <li>
-                            <div class="direction-l">                                
+                            <div class="direction-l">
                                 <div class="flag-wrapper">
                                     <span class="flag font-brandorange font-semibold">June, 2016</span>
                                 </div>
@@ -249,11 +253,11 @@
                                         minor changes, and run it again to see how
                                     the opinions of our colleagues might have changed.
                                     </span>
-                                </div>                            
+                                </div>
                             </div>
                         </li>
                         <li>
-                            <div class="direction-l"> 
+                            <div class="direction-l">
                                 <div class="flag-wrapper">
                                     <span class="flag font-brandorange font-semibold">May, 2016</span>
                                 </div>
@@ -262,11 +266,11 @@
                                     <span>We were present with a booth at the Career Fair
                                         „Sticks and Stones“ which focusses on the LGBT Community.
                                     </span>
-                                </div> 
-                          
+                                </div>
+
                             </div>
                         </li>
-                       <li>
+                        <li>
                             <div class="direction-r">
                                 <div class="flag-wrapper">
                                     <span class="flag font-brandorange font-semibold">April, 2016</span>
@@ -277,13 +281,13 @@
                                         IS24 and AS24 to those who wanted to get insights of what it means to be a
                                         software developer. Together with many volunteering Scouties we introduced
                                         the basics of website programming with HTML and CSS to 24 attending girls.
-                                    </span>    
-                                </div>     
+                                    </span>
+                                </div>
                             </div>
                         </li>
                         <li>
                             <div class="direction-l">
-                                
+
                                 <div class="flag-wrapper">
                                     <span class="flag font-brandorange font-semibold">January, 2016</span>
                                 </div>
@@ -292,7 +296,7 @@
                                     <span>We had a workshop for all interested Hiring Managers
                                         about bias in the hiring process and what to do about it.
                                     </span>
-                                </div>  
+                                </div>
                             </div>
                         </li>
                         <li>
@@ -310,21 +314,21 @@
                                     <span>
                                         In order to address more people from underrepresented groups we created a
                                         diversty claim in cooperation with HR.
-                                    </span>    
-                                </div>     
+                                    </span>
+                                </div>
                             </div>
                         </li>
                         <li>
                             <div class="direction-l">
-                                 <div class="flag-wrapper">
-                                        <span class="flag font-brandorange font-semibold">June, 2015</span>
-                                 </div>  
-                                 <div class="desc">
+                                <div class="flag-wrapper">
+                                    <span class="flag font-brandorange font-semibold">June, 2015</span>
+                                </div>
+                                <div class="desc">
                                     <h4>Our first Survey</h4>
                                     <span>In order to figure out which challenges IS24 was
                                         facing, we sent out a survey to the builders community. Based on the
                                     outcome we were able to define what we should focus on first.</span>
-                                 </div>  
+                                </div>
                             </div>
                         </li>
                         <li>
@@ -344,12 +348,12 @@
                     </ul>
                 </div>
             </div>
-            
+
         </div>
-      </div>
     </div>
-    <script src="js/dashboard.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/community-page.js"></script>
-  </body>
+</div>
+<script src="js/dashboard.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/community-page.js"></script>
+</body>
 </html>
