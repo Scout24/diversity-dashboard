@@ -25,14 +25,14 @@ var people = [
         title: "Agile Coach",
         company: "AS24",
         img: "gro.png",
-        flag: "de"
+        flag: "dk"
     },
     pavlo = {
         name: "Pavlo Voznenko",
         title: "Head of Technology",
         company: "AS24",
         img: "pavlo.png",
-        flag: "de"
+        flag: "ua"
     },
     myrtha = {
         name: "Myrtha Fuog",
@@ -62,45 +62,44 @@ var people = [
         company: "IS24",
         img: "christin.jpeg",
         flag: "de"
+    },
+    martin = {
+        name: "Martin Koch",
+        title: "Working Student",
+        company: "IS24",
+        img: "martin.jpg",
+        flag: "de"
     }
 ];
 
 
-var numberOfPeopleFirstRow = Math.floor(people.length / 2 + 1);
-var numberOfPeopleSecondRow = Math.round(people.length / 2 - 1);
+// desk und lap
+for(var i = 0; i < people.length; i+=4) {
+    var first = people[i];
+    var second = (people.length >= i + 1) ? people[i + 1] : null;
+    var third = (people.length >= i + 2) ? people[i + 2] : null;
+    var fourth = (people.length >= i + 3) ? people[i + 3] : null;
 
+    var id = "desk-profile-" + i;
+    
+    $("#profiles-desk").append(
+        "<div id=\"" + id + "\" class=\"grid gutter-l\">" +
+            getProfileItem(first, "one-fourth") +
+        "</div>"
+    );
+    
+    if(second) {
+        $("#" + id).append(getProfileItem(second, "one-fourth"));
+    }
+    if(third) {
+        $("#" + id).append(getProfileItem(third, "one-fourth"));
+    }
+    if (fourth) {
+        $("#" + id).append(getProfileItem(fourth, "one-fourth"));
+    }
+}
 
-var firstRowGridClass = calculateCssGridClassForRow(numberOfPeopleFirstRow);
-var secondRowGridClass = calculateCssGridClassForRow(numberOfPeopleSecondRow);
-
-var peopleFirstRow = people.slice(0, numberOfPeopleFirstRow);
-var peopleSecondRow = people.slice(numberOfPeopleFirstRow, people.length);
-
-peopleFirstRow.forEach(function (value, i) {
-    $("#profiles-desk1").append(
-        "<div class=\"grid-item " + firstRowGridClass + " align-center\">" +
-            "<img src=\"assets/" + value.img + "\" class=\"circular--square profile\">" + 
-            "<p class=\"font-s font-italic font-bold\">" +                     
-                "<span class=\"flag-icon flag-icon-" + value.flag + "\"></span>  " +  
-                value.name +                 
-            "</p>" +
-            "<p class=\"font-s font-italic\">" + value.company + ", " + value.title + "</p>" +
-        "</div>");
-});  
-
-peopleSecondRow.forEach(function (value, i) {
-    $("#profiles-desk2").append(
-        "<div class=\"grid-item " + secondRowGridClass + " align-center\">" +
-            "<img src=\"assets/" + value.img + "\" class=\"circular--square profile\">" + 
-            "<p class=\"font-s font-italic font-bold\">" +                     
-                "<span class=\"flag-icon flag-icon-" + value.flag + "\"></span>  " +  
-                value.name +                 
-            "</p>" +
-            "<p class=\"font-s font-italic\">" + value.company + ", " + value.title + "</p>" +
-        "</div>");
-});
-
-
+// palm
 for(var i = 0; i < people.length; i+=2) {
     var first = people[i];
     var second = (people.length >= i + 1) ? people[i + 1] : null;
@@ -109,17 +108,17 @@ for(var i = 0; i < people.length; i+=2) {
     
     $("#profiles-palm").append(
         "<div id=\"" + id + "\" class=\"grid gutter-l\">" +
-            getProfileItem(first) +
+            getProfileItem(first, "one-half") +
         "</div>"
     );
     
     if(second) {
-        $("#" + id).append(getProfileItem(second));
+        $("#" + id).append(getProfileItem(second, "one-half"));
     }
 }
 
-function getProfileItem(person) {
-    return  "<div class=\"grid-item one-half align-center\">" +
+function getProfileItem(person, cssGridItemClass) {
+    return  "<div class=\"grid-item " + cssGridItemClass + " align-center\">" +
                 "<img src=\"assets/" + person.img + "\" class=\"circular--square profile\">" + 
                 "<p class=\"font-s font-italic font-bold\">" +                     
                     "<span class=\"flag-icon flag-icon-" + person.flag + "\"></span>  " +  
@@ -127,20 +126,4 @@ function getProfileItem(person) {
                 "</p>" +
                 "<p class=\"font-s font-italic\">" + person.company + ", " + person.title + "</p>" +
             "</div>"
-}
-
-
-function calculateCssGridClassForRow(numberOfPeople) {
-    switch(numberOfPeople) {
-        case 2:
-            return "one-half";
-        case 3:
-            return "one-third";
-        case 4: 
-            return "one-fourth";
-        case 5:
-            return "one-fifth";
-        default:
-            return "one-third";
-    }
 }
