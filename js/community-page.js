@@ -38,7 +38,7 @@ var people = [
         name: "Myrtha Fuog",
         title: "Junior Fullstack Developer",
         company: "IS24",
-        img: "pavlo.png",
+        img: "myrtha.jpg",
         flag: "ch"
         
     },
