@@ -100,6 +100,36 @@ peopleSecondRow.forEach(function (value, i) {
         "</div>");
 });
 
+
+for(var i = 0; i < people.length; i+=2) {
+    var first = people[i];
+    var second = (people.length >= i + 1) ? people[i + 1] : null;
+
+    var id = "palm-profile-" + i;
+    
+    $("#profiles-palm").append(
+        "<div id=\"" + id + "\" class=\"grid gutter-l\">" +
+            getProfileItem(first) +
+        "</div>"
+    );
+    
+    if(second) {
+        $("#" + id).append(getProfileItem(second));
+    }
+}
+
+function getProfileItem(person) {
+    return  "<div class=\"grid-item one-half align-center\">" +
+                "<img src=\"assets/" + person.img + "\" class=\"circular--square profile\">" + 
+                "<p class=\"font-s font-italic font-bold\">" +                     
+                    "<span class=\"flag-icon flag-icon-" + person.flag + "\"></span>  " +  
+                    person.name +                 
+                "</p>" +
+                "<p class=\"font-s font-italic\">" + person.company + ", " + person.title + "</p>" +
+            "</div>"
+}
+
+
 function calculateCssGridClassForRow(numberOfPeople) {
     switch(numberOfPeople) {
         case 2:
