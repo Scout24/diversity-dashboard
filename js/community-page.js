@@ -10,7 +10,7 @@ var people = [
         name: "Katrin Kern",
         title: "Engineering Manager",
         company: "IS24",
-        img: "christin.jpeg",
+        img: "katrin.jpeg",
         flag: "de"
     },
     sebastian = {
@@ -38,7 +38,7 @@ var people = [
         name: "Myrtha Fuog",
         title: "Junior Fullstack Developer",
         company: "IS24",
-        img: "pavlo.png",
+        img: "myrtha.jpg",
         flag: "ch"
         
     },
