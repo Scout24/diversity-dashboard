@@ -19,14 +19,7 @@ var people = [
         company: "IS24",
         img: "alia.png",
         flag: ""
-    },
-    sebastian = {
-        name: "Sebastian Nachtigall",
-        title: "Engineering Manager",
-        company: "IS24",
-        img: "sebastian.jpeg",
-        flag: "de"
-    },    
+    },   
     paola = {
         name: "Paola Reyes",
         title: "Product Owner",
