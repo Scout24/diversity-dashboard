@@ -9,9 +9,16 @@ var people = [
     katrin = {
         name: "Katrin Kern",
         title: "Engineering Manager",
-        company: "IS24",
+        company: "S24",
         img: "katrin.jpeg",
         flag: "de"
+    },
+    alia = {
+        name: "Alia Asaad",
+        title: "iOS Developer",
+        company: "IS24",
+        img: "alia.png",
+        flag: ""
     },
     sebastian = {
         name: "Sebastian Nachtigall",
@@ -19,6 +26,13 @@ var people = [
         company: "IS24",
         img: "sebastian.jpeg",
         flag: "de"
+    },    
+    paola = {
+        name: "Paola Reyes",
+        title: "Product Owner",
+        company: "IS24",
+        img: "paola.png",
+        flag: "us"
     },
     gro = {
         name: "Gro Geert-Jørgensen",
@@ -26,6 +40,13 @@ var people = [
         company: "AS24",
         img: "gro.png",
         flag: "dk"
+    },
+    nicole = {
+        name: "Nicole Nenova",
+        title: "Working Student",
+        company: "IS24",
+        img: "nicole.jpg",
+        flag: "de"
     },
     pavlo = {
         name: "Pavlo Voznenko",
@@ -42,6 +63,20 @@ var people = [
         flag: "ch"
         
     },
+    christin = {
+        name: "Christin Westermann",
+        title: "Software Engineer",
+        company: "IS24",
+        img: "christin.png",
+        flag: "de"
+    },
+     laurie = {
+        name: "Laurie Malau",
+        title: "Junior Software Developer",
+        company: "IS24",
+        img: "laurie.png",
+        flag: "id"
+    },
     britta = {
         name: "Britta Reiners",
         title: "Agile Tester",
@@ -49,53 +84,57 @@ var people = [
         img: "britta.png",
         flag: "de"
     },
-    nicole = {
-        name: "Nicole Nenova",
-        title: "Working Student",
-        company: "IS24",
-        img: "nicole.jpg",
-        flag: "de"
+    rich = {
+        name: "Richard Durnall",
+        title: "CTO Scout24",
+        company: "S24",
+        img: "rich.png",
+        flag: "gb"
     },
-    christin = {
-        name: "Christin Westermann",
+    maya = {
+        name: "Maya Krey",
         title: "Software Engineer",
         company: "IS24",
-        img: "christin.jpeg",
+        img: "maya.jpg",
         flag: "de"
     },
-    martin = {
-        name: "Martin Koch",
-        title: "Working Student",
+    maya = {
+        name: "Jennifer Ahrens",
+        title: "Pricing Analyst",
         company: "IS24",
-        img: "martin.jpg",
-        flag: "de"
+        img: "jennifer.png",
+        flag: ""
     }
 ];
 
 
 // desk und lap
-for(var i = 0; i < people.length; i+=4) {
+for(var i = 0; i < people.length; i+=5) {
     var first = people[i];
     var second = (people.length >= i + 1) ? people[i + 1] : null;
     var third = (people.length >= i + 2) ? people[i + 2] : null;
     var fourth = (people.length >= i + 3) ? people[i + 3] : null;
+    var fifth = (people.length >= i + 4) ? people[i + 4] : null;
 
     var id = "desk-profile-" + i;
     
     $("#profiles-desk").append(
         "<div id=\"" + id + "\" class=\"grid gutter-l\">" +
-            getProfileItem(first, "one-fourth") +
+            getProfileItem(first, "one-fifth") +
         "</div>"
     );
     
     if(second) {
-        $("#" + id).append(getProfileItem(second, "one-fourth"));
+        $("#" + id).append(getProfileItem(second, "one-fifth"));
     }
     if(third) {
-        $("#" + id).append(getProfileItem(third, "one-fourth"));
+        $("#" + id).append(getProfileItem(third, "one-fifth"));
     }
     if (fourth) {
-        $("#" + id).append(getProfileItem(fourth, "one-fourth"));
+        $("#" + id).append(getProfileItem(fourth, "one-fifth"));
+    }
+    if (fifth) {
+        $("#" + id).append(getProfileItem(fifth, "one-fifth"));
     }
 }
 
